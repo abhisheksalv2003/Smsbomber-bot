@@ -11,19 +11,16 @@ import os
 from telebot import types
 
 # ----------------- CONFIGURATION ----------------- #
-API_TOKEN = "8423929126:AAHhIfkvgtsvmQFLiCvoORAy9NAUEiz029s"
-# IMPORTANT!!! - Add your PostgreSQL database URL here
-# Example from ElephantSQL: "postgres://user:password@hostname/database_name"
-DATABASE_URL = "postgres://koyeb-adm:npg_vjrlsOi9D2Xn@ep-damp-brook-a2cpzblg.eu-central-1.pg.koyeb.app/koyebdb"
 
-ADMIN_IDS = [8060162677, 8279050594]
-BASE_URL = "https://yahu.site/Mix/index.php?mo={}"
-REFERRAL_IMG_URL = "https://occupational-emerald-nhk7av6lrd.edgeone.app/IMG_20250827_181656_131.jpg"
-CHANNEL_USERNAME = "@shimuratools"
-PAYMENT_USERNAME = "Shimurahu"
-SUPPORT_USERNAME = ""
-TERMS_AND_CONDITIONS_URL = "https://telegra.ph/Terms-and-Conditions-08-29-4"
-
+API_TOKEN = os.getenv('API_TOKEN')
+DATABASE_URL = os.getenv('DATABASE_URL')
+ADMIN_IDS = [int(x) for x in os.getenv('ADMIN_IDS', '').split(',') if x.strip().isdigit()]
+BASE_URL = os.getenv('BASE_URL')
+REFERRAL_IMG_URL = os.getenv('REFERRAL_IMG_URL')
+CHANNEL_USERNAME = os.getenv('CHANNEL_USERNAME')
+PAYMENT_USERNAME = os.getenv('PAYMENT_USERNAME')
+SUPPORT_USERNAME = os.getenv('SUPPORT_USERNAME')
+TERMS_AND_CONDITIONS_URL = os.getenv('TERMS_AND_CONDITIONS_URL')
 # ----------------- LOGGING SETUP ----------------- #
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
